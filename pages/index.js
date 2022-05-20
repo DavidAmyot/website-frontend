@@ -3,7 +3,7 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getRandomUserData } from '../utils/user';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const userData = await getRandomUserData();
   console.log("home:", userData);
   return {
@@ -14,7 +14,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ userData }) {
-  // console.log("home:", userData);
   return (
     <Layout home>
       {/* Keep the existing code here */}
@@ -32,15 +31,6 @@ export default function Home({ userData }) {
             <br />
             Email: {userData.email}
           </li>
-          {/* {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))} */}
         </ul>
       </section>
     </Layout>
