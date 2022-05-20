@@ -3,7 +3,7 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getRandomUserData } from '../utils/user';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const userData = await getRandomUserData();
   console.log("home:", userData);
   return {
