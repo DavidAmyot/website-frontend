@@ -1,7 +1,8 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
+// import Head from 'next/head';
+// import Layout, { siteTitle } from '../components/layout';
+// import utilStyles from '../styles/utils.module.css';
 import { getRandomUserData } from '../utils/user';
+// import Navbar from '../components/navbar';
 
 export async function getServerSideProps() {
   const userData = await getRandomUserData();
@@ -15,14 +16,12 @@ export async function getServerSideProps() {
 
 export default function Home({ userData }) {
   return (
-    <Layout home>
-      {/* Keep the existing code here */}
-
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Random fetched user data</h2>
-        <ul className={utilStyles.list}>
-          <li className={utilStyles.listItem}>
+    <>
+      {/* First Slide */}
+      <div className='bg-orange-600 flex flex-col w-screen items-center'>
+        <h2>Random fetched user data</h2>
+        <ul>
+          <li>
             Name: {userData.name}
             <br />
             Gender: {userData.gender}
@@ -32,7 +31,12 @@ export default function Home({ userData }) {
             Email: {userData.email}
           </li>
         </ul>
-      </section>
-    </Layout>
+      </div>
+
+      {/* Second Slide */}
+      {/* <div className='bg-yellow-600 flex-1'>
+        <h2>Random fetched user data</h2>
+      </div> */}
+    </>
   );
 }
