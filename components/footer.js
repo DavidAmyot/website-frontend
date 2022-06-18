@@ -6,8 +6,8 @@
 
 export default function Footer({ children, home }) {
     return (
-        <div className="bg-green-700 h-16 w-screen">
-            Text
+        <div className="h-16 w-screen text-xs justify-center lg:justify-start items-center flex px-8">
+            © Copyright 2022 - David Amyot
         </div>
     );
 }
