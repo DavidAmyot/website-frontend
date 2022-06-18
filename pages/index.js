@@ -1,7 +1,9 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
+// import Head from 'next/head';
+import Image from 'next/image';
+// import Layout, { siteTitle } from '../components/layout';
+// import utilStyles from '../styles/utils.module.css';
 import { getRandomUserData } from '../utils/user';
+// import Navbar from '../components/navbar';
 
 export async function getServerSideProps() {
   const userData = await getRandomUserData();
@@ -15,24 +17,32 @@ export async function getServerSideProps() {
 
 export default function Home({ userData }) {
   return (
-    <Layout home>
-      {/* Keep the existing code here */}
+    <>
+      {/* First Slide */}
+      <div className='flex flex-col w-screen h-full items-center justify-around pb-32'>
+        <Image
+          priority
+          src="/images/profile.png"
+          layout='fixed'
+          height={335}
+          width={300}
+        />
 
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Random fetched user data</h2>
-        <ul className={utilStyles.list}>
-          <li className={utilStyles.listItem}>
-            Name: {userData.name}
-            <br />
-            Gender: {userData.gender}
-            <br />
-            Phone: {userData.phone}
-            <br />
-            Email: {userData.email}
-          </li>
-        </ul>
-      </section>
-    </Layout>
+        <div>
+          <div className='text-center pb-5 font-bold'><h1>Next.js Random Api Data</h1></div>
+          <ul>
+            <li>
+              Name: {userData.name}
+              <br />
+              Gender: {userData.gender}
+              <br />
+              Phone: {userData.phone}
+              <br />
+              Email: {userData.email}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
 }
