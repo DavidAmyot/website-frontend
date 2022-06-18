@@ -18,7 +18,7 @@ export default function Layout({ children }) {
 
             <Navbar />
 
-            <main className="flex flex-col h-screen w-screen bg-pink-600 justify-center items-center">
+            <main className="flex-1 flex flex-col w-screen bg-pink-600 justify-center items-center">
                 {children}
             </main>
 
