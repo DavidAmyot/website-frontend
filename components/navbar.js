@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar({ children, home }) {
     return (
-        <nav className='flex h-20 items-center w-screen p-3 lg:px-8 lg:h-16 flex-row'>
+        <nav className='flex h-14 items-center w-screen p-3 lg:px-8 lg:h-16 flex-row z-50 fixed'>
 
             {/* Website logo */}
             <div className='flex w-full lg:w-56 justify-center align-middle items-center'>
@@ -12,8 +12,9 @@ export default function Navbar({ children, home }) {
                         <Image
                             priority
                             src="/images/logo.png"
-                            height={54}
-                            width={250}
+                            className=''
+                            height={40}
+                            width={200}
                             alt={"Website Logo"}
                         />
                     </a>
@@ -23,7 +24,7 @@ export default function Navbar({ children, home }) {
             {/* Hamburger menu */}
             <button className='inline-flex rounded lg:hidden text-black ml-auto hover:text-orange-hover outline-none'>
                 <svg
-                    className='w-14 h-14'
+                    className='w-10 h-10'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
@@ -38,6 +39,7 @@ export default function Navbar({ children, home }) {
                 </svg>
             </button>
 
+            {/* Main menu */}
             <div className='hidden w-full lg:inline-flex lg:flex-grow lg:w-auto'>
                 <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto'>
                     <Link href='/'>
