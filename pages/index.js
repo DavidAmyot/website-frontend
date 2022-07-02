@@ -1,9 +1,9 @@
-// import Head from 'next/head';
-import Image from 'next/image';
-// import Layout, { siteTitle } from '../components/layout';
-// import utilStyles from '../styles/utils.module.css';
+import React from "react";
+import Script from 'next/script';
+
+import styles from './index.module.css'
 import { getRandomUserData } from '../utils/user';
-// import Navbar from '../components/navbar';
+import AnimatedBackground from '../components/animated-background.js';
 
 export async function getServerSideProps() {
   const userData = await getRandomUserData();
@@ -15,34 +15,17 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ userData }) {
+export default function Home() {
   return (
     <>
-      {/* First Slide */}
-      <div className='flex flex-col w-screen h-full items-center justify-around pb-32'>
-        <Image
-          priority
-          src="/images/profile.png"
-          layout='fixed'
-          height={335}
-          width={300}
-        />
+      <Script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js' strategy="beforeInteractive" />
+      <Script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js' strategy="beforeInteractive" />
+      <Script src='js/background.js' strategy="afterInteractive" />
 
-        <div>
-          <div className='text-center pb-5 font-bold'><h1>Next.js Random Api Data</h1></div>
-          <ul>
-            <li>
-              Name: {userData.name}
-              <br />
-              Gender: {userData.gender}
-              <br />
-              Phone: {userData.phone}
-              <br />
-              Email: {userData.email}
-            </li>
-          </ul>
-        </div>
-      </div>
+      <AnimatedBackground />
+
+      {/* scrollElement class to be queried from javascript for scroll animations */}
+      <div className={styles.scrollElement}></div>
     </>
   );
 }
