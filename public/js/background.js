@@ -27,6 +27,9 @@ scene1.to("#h1-7", { y: 5 * speed, x: 1.6 * speed }, 0)
 scene1.to("#h1-8", { y: 3.5 * speed, x: 0.2 * speed }, 0)
 scene1.to("#h1-9", { y: 3.5 * speed, x: -0.2 * speed }, 0)
 
+//animate text
+scene1.to("#info", { y: 8 * speed }, 0)
+
 /*   Bird   */
 gsap.fromTo("#bird", { opacity: 1 }, {
     y: -250,
