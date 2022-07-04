@@ -16,4 +16,4 @@ This repository contains the source code for my website. It is a public, MIT lic
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/DavidAmyot/website-frontend/blob/development/LICENSE)
 
-Copyright © 2022 [David Amyot](https://github.com/DavidAmyot).
+Licensed under the [MIT License](https://github.com/DavidAmyot/website-frontend/blob/development/LICENSE), Copyright © 2022-present [David Amyot](https://github.com/DavidAmyot).
